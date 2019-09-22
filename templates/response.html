@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if success %}
+        <TITLE>Thank you for signing up!</TITLE>
+    {% else %}
+        <TITLE>Houston, we have a problem!</TITLE>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="container" style="margin-top: 9px;">
+        <div class="jumbotron">
+            {% if success %}
+                <h1>Thank you for signing up</h1>
+                <hr>
+                <div class="alert alert-success" role="alert">
+                    The username {{username}} follows all the rules!
+                </div>
+            {% else %}
+                <h1>Whoops, we have a problem here!</h1>
+                <hr>
+                <div class="alert alert-danger" role="alert">
+                    The username {{username}} does <strong>not</strong> follow all the rules!
+                </div>
+                <p>We found the following problems with the username {{username}}:</p>
+                <ul>
+                    <strong>
+                    {% if number == False %}
+                        <li>There is no number at the end</li>
+                    {% endif %}
+                    {% if lower == False %}
+                        <li>There is no lowercase character</li>
+                    {% endif %}
+                    {% if upper == False %}
+                        <li>There is no uppercase character</li>
+                    {% endif %}
+                    </strong>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

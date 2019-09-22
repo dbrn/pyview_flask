@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+    <TITLE>Homepage</TITLE>
+{% endblock %}
+{% block content %}
+    <div class="container" style="margin-top: 9px;">
+        <div class="jumbotron">
+            <h1>Username checker</h1>
+            <hr>
+            <P>Please insert a username that follows these rules:</P>
+            <ul>
+                <li>It must contain an <strong>Uppercase Letter</strong></li>
+                <li>It must contain a <strong>lowercase letter</strong></li>
+                <li>It must have a <strong>number at the end</strong>.</li>
+            </ul>
+            <form action="{{url_for('response')}}">
+                <label for="username">Username:</label>
+                <input id="username" style="margin-left: 6px;" type="text" name="user" placeholder="Insert the username here">
+                <input class="btn btn-outline-primary btn-sm" style="width: 90px; margin-left: 6px;" type="submit" value="Check">
+            </form>
+        </div>
+    </div>
+{% endblock %}
